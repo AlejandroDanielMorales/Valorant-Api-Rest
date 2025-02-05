@@ -3,15 +3,15 @@ let url = 'https://valorant-api.com/v1/agents';
 
 axios.get(url)
     .then((response) => {
-        agentes = response.data.data; // Accede correctamente a la propiedad 'data' de la respuesta
-        pintarAgentes(agentes); // Llama a la función para pintar los agentes
-        console.log(response.data); // Para ver la estructura completa de la respuesta
+        agentes = response.data.data; 
+        pintarAgentes(agentes);
+        console.log(response.data); 
     })
     .catch((error) => console.log("Error al obtener agentes:", error));
 
 function pintarAgentes(agentes) {
     let html = '';
-    // Recorremos los agentes y creamos una tarjeta para cada uno
+    
     agentes.forEach(agente => {
         html += `
             <div class="col-md-3 col-sm-6" >
@@ -27,6 +27,6 @@ function pintarAgentes(agentes) {
         `;
     });
 
-    // Añadimos las tarjetas al contenedor 'agent-section'
+    
     document.getElementById('agent-section').innerHTML = html;
 }
