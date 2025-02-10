@@ -32,10 +32,16 @@ function crearElemento() {
 
     // Imagen del agente
     let img = document.createElement("img");
-    img.src = agent.fullPortrait;
-    img.className = "card-img-top";
+    img.src = agent.killfeedPortrait || "https://studio.uxpincdn.com/studio/wp-content/uploads/2023/03/404-page-best-practice.png.webp";
+    img.className = "card-img-top p-3";
     img.alt = agent.displayName;
 
+    // Aplicar el gradiente como fondo usando CSS directamente
+    img.style.background = `radial-gradient(ellipse 25% 50% at center, 
+    #${agent.backgroundGradientColors[0]}, 
+    #${agent.backgroundGradientColors[1]}, 
+    #${agent.backgroundGradientColors[2]}, 
+    #${agent.backgroundGradientColors[3]})`;
     // Cuerpo de la tarjeta
     let cardBody = document.createElement("div");
     cardBody.className = "card-body";
@@ -58,7 +64,7 @@ function crearElemento() {
     // Lista de habilidades del agente
     let abilitiesList = document.createElement("ul");
     abilitiesList.className = "list-group list-group-flush";
-    
+
     agent.abilities.forEach(ability => {
         let abilityItem = document.createElement("li");
         abilityItem.className = "list-group-item";
@@ -70,7 +76,7 @@ function crearElemento() {
     cardBody.appendChild(title);
     cardBody.appendChild(description);
     cardBody.appendChild(role);
-    
+
     // Agregar elementos a la tarjeta
     card.appendChild(img);
     card.appendChild(cardBody);
