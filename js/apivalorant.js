@@ -1,6 +1,7 @@
 let agentes = [];
 let armas = [];
 let mapas = [];
+
 let url = 'https://valorant-api.com/v1';
 
 // Se ejecutan todas las peticiones en paralelo
@@ -40,22 +41,33 @@ function showContent(tabName) {
 
 function pintarAgentes(agentes) {
     let html = '';
-
+    
     agentes.forEach(agente => {
+        let id=extraerUuid(agente.displayIcon);
         html += `
             <div class="col-md-3 col-sm-6">
                 <div class="card h-100 shadow-sm" style="background-color: transparent;">
-                    <img style="background-image: radial-gradient(ellipse 25% 50% at center,#${agente.backgroundGradientColors[0]},#${agente.backgroundGradientColors[1]},#${agente.backgroundGradientColors[2]},#${agente.backgroundGradientColors[3]});" src="${agente.fullPortraitV2}" class="card-img-top p-3" alt="${agente.displayName}">
+                    <img style="background-image: radial-gradient(ellipse 25% 50% at center,#${agente.backgroundGradientColors[0]},#${agente.backgroundGradientColors[1]},#${agente.backgroundGradientColors[2]},#${agente.backgroundGradientColors[3]});"src="${agente.fullPortraitV2 || 'https://studio.uxpincdn.com/studio/wp-content/uploads/2023/03/404-page-best-practice.png.webp'}" class="card-img-top p-3" alt="${agente.displayName}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-danger">${agente.displayName}</h5>
                         <p class="card-text fw-bold">${agente.description}</p>
-                        <button class="btn btn-primary mt-auto">Leer más</button>
                     </div>
+                      <a href="/pages/detail.html?agentId=${id}" class="btn btn-primary mt-auto">Leer más</a>
                 </div>
             </div>
         `;
-    });
+        console.log(`${id}`);
+        if (agente.fullPortraitV2) {
+            console.log();
+        } else {
+            console.log("La URL es inválida, se omite la ejecución.");
+        }
+        
+    }
 
+);
+
+    
     document.getElementById('agent-section').innerHTML = html;
 }
 
@@ -99,4 +111,10 @@ function pintarMapas(mapas) {
     });
 
     document.getElementById('agent-section').innerHTML = html;
+}
+
+function extraerUuid(url) {
+    let urlSplited = url.split('/');
+    let uuId = urlSplited.at(-2);
+    return uuId;
 }
