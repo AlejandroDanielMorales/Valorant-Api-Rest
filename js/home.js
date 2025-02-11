@@ -146,6 +146,48 @@ function pintarMapas(mapas) {
         container.appendChild(card);
     });
 }
+function pintarArmas(armas) {
+    let container = document.getElementById('agent-section'); 
+    container.innerHTML = '';
+
+    armas.forEach(arma => {
+        let card = document.createElement("div");
+        card.className = "col-md-3 col-sm-6";
+
+        let cardInner = document.createElement("div");
+        cardInner.className = "card h-100 shadow-sm";
+        cardInner.style.backgroundColor = "transparent";
+
+        let img = document.createElement("img");
+        img.className = "card-img-top p-3";
+        img.src = arma.displayIcon;
+        img.alt = arma.displayName;
+
+        let cardBody = document.createElement("div");
+        cardBody.className = "card-body d-flex flex-column";
+
+        let title = document.createElement("h5");
+        title.className = "card-title text-primary";
+        title.textContent = arma.displayName;
+
+        let category = document.createElement("p");
+        category.className = "card-text fw-bold";
+        category.textContent = `Categoría: ${arma.category.replace('EEquippableCategory::', '')}`;
+
+        let btn = document.createElement("button");
+        btn.className = "btn btn-secondary mt-auto";
+        btn.textContent = "Ver detalles";
+
+        cardBody.appendChild(title);
+        cardBody.appendChild(category);
+        cardBody.appendChild(btn);
+
+        cardInner.appendChild(img);
+        cardInner.appendChild(cardBody);
+        card.appendChild(cardInner);
+        container.appendChild(card);
+    });
+}
 
 // Función para extraer el UUID de la URL de la imagen
 function extraerUuid(url) {
