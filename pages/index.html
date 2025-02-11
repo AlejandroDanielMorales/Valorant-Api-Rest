@@ -12,51 +12,63 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="/js/apivalorant.js"></script>
+    <script src="/js/home.js"></script>
     
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 
-<body>
+<body class ="bg-dark">
 
 
     <header>
-        <nav class="navbar bg-black" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="https://static.vecteezy.com/system/resources/previews/019/017/536/original/valorant-logo-transparent-free-png.png"
-                        alt="Logo" width="36" height="36" class="d-inline-block align-text-top">
-                    Valorant API
-                </a>
+    <nav class="navbar navbar-expand-lg bg-black navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://static.vecteezy.com/system/resources/previews/019/017/536/original/valorant-logo-transparent-free-png.png"
+                    alt="Logo" width="36" height="36" class="d-inline-block align-text-top">
+                Valorant API
+            </a>
+            <!-- Botón hamburguesa -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Contenido desplegable -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#agent-section" class="nav-link btn btn-link text-white" onclick="showContent('agentes')">Agentes</a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="#agent-section" class="nav-link btn btn-link text-white" onclick="showContent('armas')">Armas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#agent-section" class="nav-link btn btn-link text-white" onclick="showContent('mapas')">Mapas</a>
+                    </li>
+                </ul>
             </div>
-        </nav> 
-    </header>  
-
-    <!-- Sidebar con solapas -->
-    <div id="sidebar">
-        <button class="tab" onclick="showContent('agentes')">Agentes</button>
-        <button class="tab" onclick="showContent('armas')">Armas</button>
-        <button class="tab" onclick="showContent('mapas')">Mapas</button>
-    </div>
-    <h1>App de valorant</h1>
-
+        </div>
+    </nav>
+</header>
 
     <main class="container-lg">
-        <div class="row">
+        <div class="row d-flex justify-content-center align-items-center bg-dark" >
             <div class="col-12 col-lg-6  bg-dark">
-                <img src="/banner.png" alt=""
+                <img src="/assets/banner.png" alt="banner"
                     class="intro-img">
             </div>
-            <div class="col-12 col-lg-6  bg-dark">
+            <div class="col-12 col-lg-6  bg-dark d-fleflex  ">
+                <div>
+                <h1 class="text-danger">Valorant</h1>
+                <h2 class="text-danger">Juega con nosotros!</h2>
+            </div>
                 <div class="intro-info text-white">
-                    <h2 class="text-danger">Valorant</h2>
                     <p>Valorant es un videojuego de disparos táctico en primera persona multijugador desarrollado y
                         publicado por Riot Games. El juego fue anunciado con el nombre en clave Project A en octubre de
                         2019 y fue lanzado el 2 de junio de 2020. Valorant es un videojuego de disparos táctico en
                         primera persona multijugador desarrollado y publicado por Riot Games. El juego fue anunciado con
-                        el nombre en clave Project A en octubre de 2019 y fue lanzado el 2 de junio de 2020.</p>
-                    <a href="#" class="btn btn-primary">Leer más</a>
+                        el nombre en clave Project A en octubre de 2019 y fue lanzado el 2 de junio de 2020.</p>         
                 </div>
             </div>
 
