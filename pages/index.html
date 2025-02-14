@@ -12,9 +12,10 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="/js/home.js"></script>
+   
     
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/weather.css">
 </head>
 
 
@@ -77,6 +78,31 @@
             
         </section>
     </main>
+
+    <div class="weather-container" id="weather">
+        <div class="weather-input-container d-flex gap-2">
+          <input
+            type="text"
+            id="weather-search"
+            class="weather-input"
+            placeholder="Ingrese ciudad"
+          />
+          <button class="btn btn-dark" id="weather-save">
+            🔎
+          </button>
+        </div>
+  
+        <div class="weather-info">
+          <div class="weather-info__city" id="weather-location">-</div>
+          <div class="weather-info__temp" id="weather-temp">-</div>
+          <div class="weather-info__icon" id="weather-icon"></div>
+          <div class="weather-datetime-container" id="weather-datetime-container">
+            Registro:
+          </div>
+        </div>
+      </div>
+      <script src="/js/home.js"></script>
+      <script src="/js/weather.js"></script>
 </body>
 
 </html>
